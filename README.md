@@ -7,6 +7,11 @@ python3 manage.py runserver
 
 pip3 install gunicorn~=20.1
 pip3 freeze local > requirements.txt
+pip3 install dj-database-url~=0.5 psycopg2~=2.9
+pip3 freeze local > requirements.txt
+python3 manage.py migrate
+python3 manage.py createsuperuser
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
