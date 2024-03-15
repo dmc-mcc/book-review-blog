@@ -12,6 +12,17 @@ pip3 freeze local > requirements.txt
 python3 manage.py migrate
 python3 manage.py createsuperuser
 
+python3 manage.py makemigrations blog
+python3 manage.py migrate blog
+
+
+
+## Owner can review books
+provide link to purchase on amazon
+no facility to comment on reviews at this stage ???
+
+
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
