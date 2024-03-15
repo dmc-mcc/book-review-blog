@@ -1,3 +1,13 @@
+
+pip3 install Django~=4.2.1
+pip3 freeze local > requirements.txt
+django-admin startproject codeblog .
+python3 manage.py startapp blog
+python3 manage.py runserver
+
+pip3 install gunicorn~=20.1
+pip3 freeze local > requirements.txt
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dmc mcc,
