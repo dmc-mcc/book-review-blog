@@ -11,9 +11,15 @@ pip3 install dj-database-url~=0.5 psycopg2~=2.9
 pip3 freeze local > requirements.txt
 python3 manage.py migrate
 python3 manage.py createsuperuser
+https://book-review-blog-ff699e16bcc0.herokuapp.com/admin/auth/user/1/change/
 
 python3 manage.py makemigrations blog
 python3 manage.py migrate blog
+python3 manage.py makemigrations --dry-run
+python3 manage.py migrate blog zero   (unapply migrations)
+git diff
+mkdir -p blog/templates/blog
+touch blog/templates/blog/post_list.html
 
 
 
