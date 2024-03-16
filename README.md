@@ -9,6 +9,10 @@ pip3 install gunicorn~=20.1
 pip3 freeze local > requirements.txt
 pip3 install dj-database-url~=0.5 psycopg2~=2.9
 pip3 install django-summernote~=0.8.20.0
+pip3 install whitenoise~=5.3.0
+python3 manage.py collectstatic
+python3 -V
+Python 3.9.17
 
 pip3 freeze local > requirements.txt
 python3 manage.py migrate
