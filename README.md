@@ -8,6 +8,8 @@ python3 manage.py runserver
 pip3 install gunicorn~=20.1
 pip3 freeze local > requirements.txt
 pip3 install dj-database-url~=0.5 psycopg2~=2.9
+pip3 install django-summernote~=0.8.20.0
+
 pip3 freeze local > requirements.txt
 python3 manage.py migrate
 python3 manage.py createsuperuser
@@ -20,6 +22,7 @@ python3 manage.py migrate blog zero   (unapply migrations)
 git diff
 mkdir -p blog/templates/blog
 touch blog/templates/blog/post_list.html
+python3 manage.py loaddata posts
 
 
 
