@@ -29,9 +29,12 @@ def post_detail(request, slug):
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    context = {"post": post, "Author": DMC}
+
     return render(
         request,
         "blog/post_detail.html",
-        {"post": post},
+        context,
+#        {"post": post},
     )
   
