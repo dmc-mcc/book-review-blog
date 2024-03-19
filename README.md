@@ -10,6 +10,11 @@ pip3 freeze local > requirements.txt
 pip3 install dj-database-url~=0.5 psycopg2~=2.9
 pip3 install django-summernote~=0.8.20.0
 pip3 install whitenoise~=5.3.0
+pip3 install django-allauth~=0.57.0
+pip3 show django-allauth
+/workspace/.pip-modules/lib/python3.9/site-packages
+cp -r /workspace/.pip-modules/lib/python3.9/site-packages/allauth/templates/* ./templates/
+
 python3 manage.py collectstatic
 python3 -V
 Python 3.9.17

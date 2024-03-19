@@ -48,9 +48,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+     'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django_summernote',
     'blog',
 ]
+
+SITE_ID = 1     # allow Django to handle multiple sites from one database
+LOGIN_REDIRECT_URL = '/'    # automatically redirect to the home page
+LOGOUT_REDIRECT_URL = '/'
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware', # middleware for the allauth.account 
 ]
 
 ROOT_URLCONF = 'codeblog.urls'
@@ -125,6 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
 # Internationalization
