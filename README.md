@@ -15,6 +15,7 @@ pip3 show django-allauth
 https://docs.allauth.org/en/latest/installation/quickstart.html
 /workspace/.pip-modules/lib/python3.9/site-packages
 cp -r /workspace/.pip-modules/lib/python3.9/site-packages/allauth/templates/* ./templates/
+pip3 install django-crispy-forms~=2.0 crispy-bootstrap5~=0.7
 
 python3 manage.py collectstatic
 python3 -V
