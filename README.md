@@ -12,6 +12,7 @@ pip3 install django-summernote~=0.8.20.0
 pip3 install whitenoise~=5.3.0
 pip3 install django-allauth~=0.57.0
 pip3 show django-allauth
+https://docs.allauth.org/en/latest/installation/quickstart.html
 /workspace/.pip-modules/lib/python3.9/site-packages
 cp -r /workspace/.pip-modules/lib/python3.9/site-packages/allauth/templates/* ./templates/
 
@@ -34,6 +35,8 @@ touch blog/templates/blog/post_list.html
 python3 manage.py loaddata posts
 
 
+dmc-m
+dmcblog
 
 ## Owner can review books
 provide link to purchase on amazon
