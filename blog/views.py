@@ -34,11 +34,15 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
 #    print(" slug")
 #    context = {"post": post, "Author": DMC}
+ #   comments = "comment 1"
     comments = post.comment.all().order_by("-created_on")
+    
+  #  if (comments == ""):
+   #     comments = "comment 1"
+
+
     comment_count = post.comments.filter(approved=True).count()
     if request.method == "POST":
-        print("POST request")
-
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -63,7 +67,7 @@ def post_detail(request, slug):
             },
         )
 
-  
+ 
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments

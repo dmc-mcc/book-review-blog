@@ -31,13 +31,13 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-7_t8sgkor&%lma18zj%a29frn*eh!#8j-@i3l=k19f404w)d+b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
-ALLOWED_HOSTS = ['8000-dmcmcc-bookreviewblog-ne7xhd3v706.ws-eu110.gitpod.io',
+# '8000-dmcmcc-bookreviewblog-ne7xhd3v706.ws-eu110.gitpod.io'
+ALLOWED_HOSTS = ['.gitpod.io',
 '.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com']
-
 
 # Application definition
 
@@ -61,10 +61,6 @@ INSTALLED_APPS = [
 SITE_ID = 1     # allow Django to handle multiple sites from one database
 LOGIN_REDIRECT_URL = '/'    # automatically redirect to the home page
 LOGOUT_REDIRECT_URL = '/'
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,6 +73,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware', # middleware for the allauth.account 
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 ROOT_URLCONF = 'codeblog.urls'
 
@@ -102,18 +101,24 @@ WSGI_APPLICATION = 'codeblog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-}
+#if "DEBUG" in os.environ:
 
-if 'test' in sys.argv:
-    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+print("debug!")
+"""
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+"""
+
+#if 'test' in sys.argv:
+ #   DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
 #    "https://*.codeanyapp.com",
