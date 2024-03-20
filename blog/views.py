@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 #from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+#from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
@@ -34,8 +34,8 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
 #    print(" slug")
 #    context = {"post": post, "Author": DMC}
- #   comments = "comment 1"
-    comments = post.comment.all().order_by("-created_on")
+    comments = "comment 1"
+ #   comments = post.comment.all().order_by("-created_on")
     
   #  if (comments == ""):
    #     comments = "comment 1"
