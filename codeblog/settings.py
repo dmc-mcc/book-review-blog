@@ -104,20 +104,20 @@ WSGI_APPLICATION = 'codeblog.wsgi.application'
 #if "DEBUG" in os.environ:
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 
 #print("debug!")
 
 #else:
 
-#DATABASES = {
- #   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-#}
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 
 
 #if 'test' in sys.argv:
