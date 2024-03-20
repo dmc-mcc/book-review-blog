@@ -23,7 +23,6 @@ if os.path.isfile('env.py'):
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -35,8 +34,7 @@ DEBUG = True
 #DEBUG = False
 
 # '8000-dmcmcc-bookreviewblog-ne7xhd3v706.ws-eu110.gitpod.io'
-ALLOWED_HOSTS = ['.gitpod.io',
-'.herokuapp.com']
+ALLOWED_HOSTS = ['.gitpod.io','.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com']
 
 # Application definition
@@ -110,10 +108,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-"""
+
 print("debug!")
 
 #else:
+"""
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }

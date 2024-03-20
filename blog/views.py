@@ -10,7 +10,7 @@ from .forms import CommentForm
 #def my_blog(request):
 #    return HttpResponse("<h1>Book Review Blog</h1> <uL><li>1.</li><li>2.</li><li>3.</li></ul>")
 
-class PostList(generic.ListView):
+class PostList(generic.ListView):  # Generic view, therefore template name is inferred: post_list.html
     queryset = Post.objects.all().filter(status=1).order_by("-created_on")
     template_name = "blog/index.html"
     paginate_by = 4
