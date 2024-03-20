@@ -11,3 +11,4 @@ blog/fixtures/
 login-bak.html
 logout-bak.html
 signup-bak.html
+db.sqlite3
