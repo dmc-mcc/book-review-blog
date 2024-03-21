@@ -46,7 +46,7 @@ def post_detail(request, slug):
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
-            comment.author = request.user
+            comment.reviewer = request.user
             comment.post = post
             comment.save()
             messages.add_message(
@@ -79,7 +79,7 @@ def comment_edit(request, slug, comment_id):
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
-        if comment_form.is_valid() and comment.author == request.user:
+        if comment_form.is_valid() and comment.reviewer == request.user:
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.approved = False
@@ -98,7 +98,7 @@ def comment_delete(request, slug, comment_id):
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
-    if comment.author == request.user:
+    if comment.reviewer == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
