@@ -45,7 +45,31 @@ dmcblog
 provide link to purchase on amazon
 no facility to comment on reviews at this stage ???
 
+import os
 
+env.py :
+
+os.environ.setdefault(
+    "DATABASE_URL", "postgres://hrogzuiz:TjbBQBo23am_1pZ9gFTLZhHzaSCQOU_8@flora.db.elephantsql.com/hrogzuiz")
+
+os.environ.setdefault("SECRET_KEY", "385692141763:D6gRao834d5f9e59bf5dejbBQBo23am1pZ9gFTLZc70d6ca3chkdZ7H0xyZJRDQ@di3oiamqr")
+
+ignore:
+
+core.Microsoft*
+core.mongo*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+node_modules/
+.github/
+cloudinary_python.txt
+blog/fixtures/
+login-bak.html
+logout-bak.html
+signup-bak.html
+db.sqlite3
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
