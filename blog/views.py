@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 #from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
-#from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
@@ -34,9 +34,9 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
 #    print(" slug")
 #    context = {"post": post, "Author": DMC}
-    comments = "comment 1"
+ #   comments = "comment 1"
  #   comments = post.comment.all().order_by("-created_on")
-    
+    comments = post.comments.filter(approved=True).order_by("-created_on")
   #  if (comments == ""):
    #     comments = "comment 1"
 
@@ -52,10 +52,16 @@ def post_detail(request, slug):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
-    )
+            )
+        else:
+            # Add error message for failed form submission
+            messages.add_message(
+                request, messages.ERROR,
+                'Comment submission failed. Please check your input.'
+            )
 
     comment_form = CommentForm()
-    print("render template")
+ #   print("render template")
     return render(
             request,
             "blog/post_detail.html",
@@ -84,7 +90,7 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated and awaiting approval')
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
