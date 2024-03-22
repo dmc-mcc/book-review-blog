@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-#from django.http import HttpResponse
+from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -32,13 +32,9 @@ def post_detail(request, slug):
     """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
-#    print(" slug")
-#    context = {"post": post, "Author": DMC}
  #   comments = "comment 1"
  #   comments = post.comment.all().order_by("-created_on")
     comments = post.comments.filter(approved=True).order_by("-created_on")
-  #  if (comments == ""):
-   #     comments = "comment 1"
 
 
     comment_count = post.comments.filter(approved=True).count()
@@ -54,7 +50,7 @@ def post_detail(request, slug):
                 'Comment submitted and awaiting approval'
             )
         else:
-            # Add error message for failed form submission
+            # error message for failed form submission
             messages.add_message(
                 request, messages.ERROR,
                 'Comment submission failed. Please check your input.'
@@ -112,10 +108,8 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-
  #   queryset = Post.objects.all().order_by("created_on")
  #   queryset = Post.objects.filter(status=1)
  
-
 #def my_blog(request):
  #   return HttpResponse("Hello, Blog!")

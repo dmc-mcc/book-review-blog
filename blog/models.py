@@ -34,3 +34,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.reviewer}"
+
+class Faq(models.Model):
+    question = models.TextField()
+    answer = models.TextField()
+
+    def __str__(self):
+        return self.question
+

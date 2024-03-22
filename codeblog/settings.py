@@ -111,17 +111,13 @@ WSGI_APPLICATION = 'codeblog.wsgi.application'
     #}
 #}
 
-#print("debug!")
-
-#else:
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
-
-#if 'test' in sys.argv:
- #   DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+# enable automated testing dBase setup
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
 #    "https://*.codeanyapp.com",

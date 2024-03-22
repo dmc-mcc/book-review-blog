@@ -1,4 +1,196 @@
 
+
+<img src="static/images/Calvin-Avoiding-1.jpg" >
+
+# Title: Book Review Blog
+
+## Overview:
+- Foster a interest in reading highly recommended publications in relevant subject areas
+
+## Features:
+
+### Enable Followers to: 
+- Access resources and services that promote mental and intellectual well-being. 
+
+
+# Detailed Description
+
+## User registration.
+- User profiles: allow users to read reviews in areas of interest to them.
+
+
+### 1. Technical Project Overview
+
+Full Stack Web Development Hackathon: Application built using a Full Stack Django Framework.
+
+Activities: Development using Django, Python, HTML, CSS and JavaScript, UX Design, and Agile Project Management.
+
+Objectives:
+- Use an Agile methodology to plan and design a Full-Stack Web application using an MVT framework and related contemporary technologies.
+- Implement a data model, application features and business logic to manage, query and manipulate data to meet given needs in a particular real-world domain.
+- Identify and apply authorisation, authentication and permission features in a Full-Stack web application solution.
+- Create manual and/or automated tests for a Full-Stack Web application using an MVT framework and related contemporary technologies.
+- Use a distributed version control system and a repository hosting service to document, develop and maintain a Full-Stack Web application using an MVC framework and related contemporary technologies.
+- Deploy a Full-Stack Web application using an MVC framework and related contemporary technologies to a cloud-based platform
+
+### 2. Explain the Design and Thinking Process
+
+- feature name
+- description of the feature
+- screenshot
+
+- Project Idea:	Book Review Blog
+- Wireframing Tool: Balsamiq
+- Project Management Kanban Board Tool: GitHub
+- Leverage Bootstrap: Yes
+- Leverage external APIs:	Cloudinary
+- Define roles and responsibilities
+--  Potential Roles: 
+Developer (Frontend and Backend), 
+Product Owner, 
+Scrum Master,
+Branch Manager (Forking), 
+Documenter,
+Environment Owner,
+ERD Designer (Models).
+
+
+### 3. UX with user stories
+- site goals
+- design thought process
+- planning and wireframe design
+- design choices
+- user stories
+- wireframes
+
+## Project Board:
+https://github.com/users/dmc-mcc/projects/7/views/1
+
+### 4. Deployment
+- demonstrate how to deploy project
+- record to self and others of how to deploy and use our software
+- detailed list of deployment steps
+- heroku
+- elephantsql
+- cloudinary
+
+## Heroku
+- Activate your Heroku Student Pack
+- Get the student offer
+- Heroku dashboard
+- Account settings
+- Billings
+- Subscribe to Eco
+- Eco dyno
+- Your Eco dyno subscription is now active
+- DISABLE_COLLECTSTATIC key has a value of 1
+- pip3 to install webserver gunicorn~=20.1
+- Procfile: add a command using gunicorn and codestar wsgi: web: gunicorn codestar.wsgi
+- DEBUG constant to False
+- Heroku dashboard: go to your app. Click on the Deploy tab
+- Reveal Config Vars in the Settings
+- DATABASE_URL = add the value of the ElephantSQL URL
+
+ ## Elephant SQL
+- ElephantSQL is a PostgreSQL database hosting service that uses several cloud-hosted platforms
+- Log into ElephantSQL to access your dashboard
+- Create New Instance.
+- Tiny Turtle plan
+- Select a data centre near you
+- Create instance
+- Click on your newly named instance
+- Click on STATS.
+- Verify the version of PostgreSQL is 12 or higher
+- Create a file named env.py,
+- .gitignore file: add env.py
+- os.environ.setdefault("DATABASE_URL", "<your-database-URL>")
+- pip3 install dj-database-url~=0.5 psycopg2~=2.9, pip3 freeze --local > requirements.txt
+- settings.py: import os; import dj_database_url if os.path.isfile('env.py'):     import env
+- python3 manage.py createsuperuser
+
+## Cloudinary
+- A persistent file store
+- Cloudinary is an API, so we will need an API key to connect the Django project to it securely
+- pip3 install cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15
+- pip3 freeze --local > requirements.txt
+- Sign up to Cloudinary
+- env.py: os.environ.setdefault("CLOUDINARY_URL", "<URL copied from Cloudinary in last step>")
+- settings.py: INSTALLED_APPS
+- Update the app to use Cloudinary
+- import the CloudinaryField from the cloudinary/models.py
+- python3 manage.py makemigrations
+- python3 manage.py migrate
+
+## Deployment with static files
+- whitenoise server
+- pip3 install whitenoise~=5.3.0
+- pip3 freeze --local > requirements.txt
+- settings.py: 'whitenoise.middleware.WhiteNoiseMiddleware',
+
+## Demonstrate Testing
+
+Validator Testing
+- Note: Regular HTML validators do not work well with DTL markup
+- pip install django-html-validator
+- It won't do anything until you chose how you want to use it and you also need to explicitly enable it with a setting.
+- you have a choice of how you want to use this:
+- As a middleware:
+- In your unit tests (technically they're integration tests in Django)
+- If you chose to set it up as a middleware and enable it accordingly it will run for every rendered template in the tests too. Not just when you run the server.
+
+gitpod /workspace/book-review-blog (main) $ python3 manage.py test
+
+Found 4 test(s).
+
+Creating test database for alias 'default'...
+
+System check identified no issues (0 silenced).
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.624s
+
+OK
+Destroying test database for alias 'default'...
+
+
+## Responsive Design:
+
+Tablet:
+
+<img src="static/images/tablet screen.png" >
+
+Smartphone:
+
+<img src="static/images/iphone se screen.png" >
+
+## next steps
+- Complete faq view
+- provide link to purchase reviewed books on amazon
+
+
+## Credit Sources
+- images
+- code
+- text 
+- link to relevant sites
+- authors name
+
+
+
+
+
+
+
+
+
+pip install -r requirements.txt
+Successfully installed django-ckeditor-6.7.1 django-js-asset-2.2.0
+pip install django-ckeditor
+
+https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=1
+
+
 pip3 install Django~=4.2.1
 pip3 freeze local > requirements.txt
 django-admin startproject codeblog .
@@ -41,144 +233,10 @@ python3 manage.py loaddata posts
 dmc-m
 dmcblog
 
-## Owner can review books
-provide link to purchase on amazon
-no facility to comment on reviews at this stage ???
-
-import os
-
-env.py :
-
-os.environ.setdefault(
-    "DATABASE_URL", "postgres://hrogzuiz:TjbBQBo23am_1pZ9gFTLZhHzaSCQOU_8@flora.db.elephantsql.com/hrogzuiz")
-
-os.environ.setdefault("SECRET_KEY", "385692141763:D6gRao834d5f9e59bf5dejbBQBo23am1pZ9gFTLZc70d6ca3chkdZ7H0xyZJRDQ@di3oiamqr")
-
-ignore:
-
-core.Microsoft*
-core.mongo*
-core.python*
-env.py
-__pycache__/
-*.py[cod]
-node_modules/
-.github/
-cloudinary_python.txt
-blog/fixtures/
-login-bak.html
-logout-bak.html
-signup-bak.html
-db.sqlite3
 
 
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome dmc mcc,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
